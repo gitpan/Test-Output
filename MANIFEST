@@ -11,4 +11,7 @@ t/pod.t
 t/output_is.t
 t/stderr_is.t
 t/stdout_is.t
+t/output_isnt.t
+t/stderr_isnt.t
+t/stdout_isnt.t
 

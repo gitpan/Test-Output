@@ -6,41 +6,41 @@ use strict;
 use warnings;
 
 check_test( sub {
-            stdout_is(sub {
+            stdout_isnt(sub {
                         print "TEST OUT\n";
                       },
-                      "TEST OUT\n",
+                      "TEST OUT STDOUT\n",
                       'Testing STDOUT'
                     )
             },{
               ok => 1,
               name => 'Testing STDOUT',
-            },'STDOUT matches success'
+            },'STDOUT not equal success'
           );
 
 check_test( sub {
-            stdout_is(sub {
+            stdout_isnt(sub {
                         printf("TEST OUT - %d\n",42);
                       },
-                      "TEST OUT - 42\n",
+                      "TEST OUT - 25\n",
                       'Testing STDOUT printf'
                     )
             },{
               ok => 1,
               name => 'Testing STDOUT printf',
-            },'STDOUT printf matches success'
+            },'STDOUT printf not equal success'
           );
 
 check_test( sub {
-            stdout_is(sub {
+            stdout_isnt(sub {
                         print "TEST OUT";
                       },
-                      "TEST OUT STDOUT",
+                      "TEST OUT",
                       'Testing STDOUT failure'
                     )
             }, {
               ok => 0,
               name => 'Testing STDOUT failure',
-              diag => "STDOUT is:\nTEST OUT\nnot:\nTEST OUT STDOUT\nas expected\n",
-            },'STDOUT not matching failure'
+              diag => "STDOUT:\nTEST OUT\nmatching:\nTEST OUT\nnot expected\n",
+            },'STDOUT matches failure'
           );
