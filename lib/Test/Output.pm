@@ -60,11 +60,11 @@ Test::Output - Utilities to test STDOUT and STDERR messages.
 
 =head1 VERSION
 
-Version 0.10
+Version 0.11
 
 =cut
 
-our $VERSION = '0.10';
+our $VERSION = '0.11';
 
 =head1 SYNOPSIS
 
@@ -103,7 +103,7 @@ our $VERSION = '0.10';
 =head1 DESCRIPTION
 
 Test::Output provides a simple interface for testing output sent to STDOUT
-or STDERR. A number of different utilies are included to try and be as
+or STDERR. A number of different utilities are included to try and be as
 flexible as possible to the tester.
 
 Originally this module was designed not to have external requirements, 
@@ -753,7 +753,7 @@ sub output_unlike (&$$;$$) {
 =head1 EXPORTS
 
 By default, all tests are exported, however with the switch to L<Sub::Exporter>
-export groups are now available to beter limit imports.
+export groups are now available to better limit imports.
 
 To import tests for STDOUT:
 
@@ -842,6 +842,9 @@ stderr_from() executes $coderef and captures STDERR.
 sub stderr_from (&) {
   my $test = shift;
 
+  local $SIG{__WARN__} = sub { print STDERR @_ }
+    if $] < 5.008;
+  
   select( ( select(STDERR), $| = 1 )[0] );
   my $err = tie *STDERR, 'Test::Output::Tie';
 
@@ -935,7 +938,14 @@ sub _chkregex {
 
 =head1 AUTHOR
 
-Shawn Sorichetti, C<< <ssoriche@coloredblocks.net> >>
+Shawn Sorichetti, C<< <ssoriche@cpan.org> >>
+
+=head1 SOURCE AVAILABILITY
+ 
+This module is in Github:
+
+L<<a href="http://github.com/ssoriche/test-output/tree/master">http://github.com/ssoriche/test-output/tree/master</a>>
+
 
 =head1 BUGS
 
