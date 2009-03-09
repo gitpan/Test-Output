@@ -1,17 +1,17 @@
 --- #YAML:1.0
 name:               Test-Output
-version:            0.12
+version:            0.13
 abstract:           Utilities to test STDOUT and STDERR messages.
 author:
-    - Shawn Sorichetti <ssoriche@coloredblocks.net>
-license:            unknown
+    - brian d foy <bdfoy@cpan.org>
+license:            perl
 distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
 requires:
     Sub::Exporter:  0
     Test::More:     0
-    Test::Tester:   0.103
+    Test::Tester:   0.1037
 no_index:
     directory:
         - t

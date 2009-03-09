@@ -1,4 +1,5 @@
 package Test::Output;
+use vars qw($VERSION);
 
 use warnings;
 use strict;
@@ -64,7 +65,7 @@ Version 0.12
 
 =cut
 
-our $VERSION = '0.12';
+$VERSION = '0.13';
 
 =head1 SYNOPSIS
 
@@ -938,14 +939,15 @@ sub _chkregex {
 
 =head1 AUTHOR
 
+Currently maintained by brian d foy, C<bdfoy@cpan.org>.
+
 Shawn Sorichetti, C<< <ssoriche@cpan.org> >>
 
 =head1 SOURCE AVAILABILITY
  
 This module is in Github:
 
-L<<a href="http://github.com/ssoriche/test-output/tree/master">http://github.com/ssoriche/test-output/tree/master</a>>
-
+	http://github.com/briandfoy/test-output/tree/master
 
 =head1 BUGS
 
@@ -967,7 +969,7 @@ Thanks to Michael G Schwern for the solution to combining STDOUT and STDERR.
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2005 Shawn Sorichetti, All Rights Reserved.
+Copyright 2005-2008 Shawn Sorichetti, All Rights Reserved.
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.
