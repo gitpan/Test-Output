@@ -61,7 +61,7 @@ Test::Output - Utilities to test STDOUT and STDERR messages.
 
 =cut
 
-$VERSION = '0.14';
+$VERSION = '0.15';
 
 =head1 SYNOPSIS
 
@@ -815,7 +815,7 @@ stdout_from() executes $coderef and captures STDOUT.
 
 sub stdout_from (&) {
 	my $test = shift;
-	return getfrom($test, 1, 0);
+	return _getfrom($test, 1, 0);
 }
 
 =head2 stderr_from
@@ -828,7 +828,7 @@ stderr_from() executes $coderef and captures STDERR.
 =cut
 
 sub stderr_from (&) {
-  return getfrom(shift, 0, 1);
+  return _getfrom(shift, 0, 1);
 }
 
 =head2 output_from
@@ -841,7 +841,7 @@ output_from() executes $coderef one time capturing both STDOUT and STDERR.
 =cut
 
 sub output_from (&) {
-  return getfrom(shift, 1, 1);
+  return _getfrom(shift, 1, 1);
 }
 
 =head2 combined_from
@@ -855,7 +855,7 @@ captures them. combined_from() is equivalent to using 2>&1 in UNIX and Windows.
 =cut
 
 sub combined_from (&) {
-  return getfrom(shift, 1, 1);
+  return _getfrom(shift, 1, 1);
 }
 
 sub _chkregex {
@@ -877,13 +877,13 @@ sub _chkregex {
   return 1;
 }
 
-sub slurp ($) {
+sub _slurp ($) {
 	my $h = shift;
 	$h->seek(0, 0) || die "can't seek: $!";
 	return join("", <$h>);
 }
 
-sub getfrom ($$$) {
+sub _getfrom ($$$) {
 	my ($test, $capout, $caperr) = @_;
 	my ($oldout, $olderr);
 	my ($tmpout, $tmperr);
@@ -908,7 +908,7 @@ sub getfrom ($$$) {
 
 	if ($tmpout) {
 		if ($tmperr) {
-			my ($out, $err) = (slurp($tmpout), slurp($tmperr));
+			my ($out, $err) = (_slurp($tmpout), _slurp($tmperr));
 			open STDOUT, ">&", $oldout or die "can't restore STDOUT: $!";
 			open STDERR, ">&", $olderr or die "can't restore STDERR: $!";
 			close($tmpout);
@@ -916,14 +916,14 @@ sub getfrom ($$$) {
 			File::Temp::cleanup();	# This should work but does not (but it's bugged)
 			return $out, $err;
 		} else {
-			my $out = slurp($tmpout);
+			my $out = _slurp($tmpout);
 			open STDOUT, ">&", $oldout or die "can't restore STDOUT: $!";
 			close($tmpout);
 			File::Temp::cleanup();	# This should work but does not (but it's bugged)
 			return $out;
 		}
 	} else {
-		my $err = slurp($tmperr);
+		my $err = _slurp($tmperr);
 		open STDERR, ">&", $olderr or die "can't restore STDERR: $!";
 		close($tmperr);
 		File::Temp::cleanup();	# This should work but does not (but it's bugged)

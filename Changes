@@ -1,5 +1,8 @@
 Revision history for Test-Output
 
+0.15 - Sat May 12 11:45:00 2009
+	Fixed a Test::Pod::Coverage test bug
+
 0.14 - Sat May  2 00:00:00 2009
 	Fix bug 45598
 	Fix bug 18107
