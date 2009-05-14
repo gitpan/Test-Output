@@ -1,11 +1,20 @@
 Revision history for Test-Output
 
-0.15 - Sat May 12 11:45:00 2009
-	Fixed a Test::Pod::Coverage test bug
+0.15_01 - Tue May 14 11:57:00 2009
+	Deleted 0.15
+	Modified the File::Temp dependency so that it requires version 0.17, since
+	seekable files aren't supported prior to that release. This should address
+	bug 45740.
+	Add test case for bug 45748, which was fixed in 0.14.
+
+0.15 - Tue May 12 11:45:00 2009
+	Deleted 0.14
+	Fixed a Test::Pod::Coverage test bug.
 
 0.14 - Sat May  2 00:00:00 2009
-	Fix bug 45598
-	Fix bug 18107
+	Fixed bug 45598.
+	Fixed bug 18107.
+	Fixed bug 23494.
 	Removed the version stamp from the pod, which was incorrect.
 
 0.13 - Sun Mar  8 23:00:11 2009

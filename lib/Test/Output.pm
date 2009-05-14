@@ -61,7 +61,7 @@ Test::Output - Utilities to test STDOUT and STDERR messages.
 
 =cut
 
-$VERSION = '0.15';
+$VERSION = '0.15_01';
 
 =head1 SYNOPSIS
 
