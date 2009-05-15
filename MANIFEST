@@ -1,11 +1,13 @@
 Changes
 lib/Test/Output.pm
+lib/Test/Output/Tie.pm
 LICENSE
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 README
 t/00.load.t
+t/binmode.t
 t/carp-5.6.t
 t/combined_is.t
 t/combined_isnt.t
@@ -25,6 +27,5 @@ t/stdout_is.t
 t/stdout_isnt.t
 t/stdout_like.t
 t/stdout_unlike.t
-t/rt.t
 TODO
 META.yml                                 Module meta-data (added by MakeMaker)

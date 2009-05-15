@@ -1,21 +1,10 @@
 Revision history for Test-Output
 
-0.15_01 - Tue May 14 11:57:00 2009
-	Deleted 0.15
-	Modified the File::Temp dependency so that it requires version 0.17, since
-	seekable files aren't supported prior to that release. This should address
-	bug 45740.
-	Add test case for bug 45748, which was fixed in 0.14.
-
-0.15 - Tue May 12 11:45:00 2009
-	Deleted 0.14
-	Fixed a Test::Pod::Coverage test bug.
-
-0.14 - Sat May  2 00:00:00 2009
-	Fixed bug 45598.
-	Fixed bug 18107.
-	Fixed bug 23494.
-	Removed the version stamp from the pod, which was incorrect.
+0.16 - Fri May 15 09:14:19 2009
+	Multiple fixes:
+	* RT #23494: squash warning when untie-ing STDOUT
+	* RT #45740: fix Test::Tester prereq version
+	* RT #45748: Add a null BINMODE to Test::Output::Tie
 
 0.13 - Sun Mar  8 23:00:11 2009
 	* brian d foy (bdfoy@cpan.org) is the new maintainer

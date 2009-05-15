@@ -4,11 +4,11 @@ Test-Output provides a simple interface for testing output send to STDOUT
 or STDERR. A number of different utilies are included to try and be as 
 flexible as possible to the tester.
 
-To better reflect real programs, tie'ing is no longer used as a capture
-method. STDOUT and/or STDERR are now redirected to handles returned by
-File::Temp, which makes this module now depend upon File::Temp.  I see
-no problem in doing so since File::Temp has long been part of the standard
-perl distribution. And I had a look at its bug list: they are acceptable.
+While Test::Output requires Test::Tester during installation, this 
+requirement is only for it's own tests, not for what it's testing. One of 
+the main ideas behind Test::Output is to make it as self contained as 
+possible so it can be included with other's modules. As of this release
+the only requirement is to include Test::Output::Tie along with it.
 
 INSTALLATION
 

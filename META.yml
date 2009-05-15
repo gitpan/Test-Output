@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Test-Output
-version:            0.15_01
+version:            0.16
 abstract:           Utilities to test STDOUT and STDERR messages.
 author:
     - brian d foy <bdfoy@cpan.org>
@@ -9,10 +9,9 @@ distribution_type:  module
 configure_requires:
     ExtUtils::MakeMaker:  0
 requires:
+    File::Temp:     0.21
     Sub::Exporter:  0
     Test::More:     0
-    File::Temp:     0.17
-    Sub::Exporter:  0
     Test::Tester:   0.107
 no_index:
     directory:
