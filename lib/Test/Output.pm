@@ -65,7 +65,7 @@ Version 0.16
 
 =cut
 
-$VERSION = '0.16';
+$VERSION = '0.16_01';
 
 =head1 SYNOPSIS
 
@@ -96,8 +96,8 @@ $VERSION = '0.16';
 
    # Use bare blocks.
 
-   stdout_is { print "test" } "test" "Test STDOUT";
-   stderr_isnt { print "bad test" } "test" "Test STDERR";
+   stdout_is { print "test" } "test", "Test STDOUT";
+   stderr_isnt { print "bad test" } "test", "Test STDERR";
    output_is { print 'STDOUT'; print STDERR 'STDERR' }
      "STDOUT", "STDERR", "Test output";
 
