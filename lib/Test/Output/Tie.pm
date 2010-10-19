@@ -1,14 +1,14 @@
 package Test::Output::Tie;
 use vars qw($VERSION);
 
-$VERSION='0.16_01';
+$VERSION='0.16_02';
 
 use strict;
 use warnings;
 
 =head1 NAME
 
-Test::Output::Tie - module used by Test::Output to tie STDIN and STDOUT
+Test::Output::Tie - module used by Test::Output to tie STDERR and STDOUT
 
 =head1 DESCRIPTION
 
@@ -44,7 +44,8 @@ This method is called each time STDERR or STDOUT are printed to.
 
 sub PRINT {
     my $self = shift;
-    $$self .= join('', @_);
+    $$self .= join(':::s', @_);
+    $$self .= defined $\ ? $\ : ''; # for say()
 }
 
 =item PRINTF
