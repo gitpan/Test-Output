@@ -1,7 +1,7 @@
 package Test::Output::Tie;
 use vars qw($VERSION);
 
-$VERSION='0.16_02';
+$VERSION='0.16_03';
 
 use strict;
 use warnings;
@@ -44,7 +44,7 @@ This method is called each time STDERR or STDOUT are printed to.
 
 sub PRINT {
     my $self = shift;
-    $$self .= join(':::s', @_);
+    $$self .= join(defined $, ? $, : '', @_);
     $$self .= defined $\ ? $\ : ''; # for say()
 }
 
