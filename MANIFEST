@@ -1,10 +1,10 @@
 Changes
 lib/Test/Output.pm
-lib/Test/Output/Tie.pm
 LICENSE
 Makefile.PL
 MANIFEST
 MANIFEST.SKIP
+MYMETA.json
 README
 t/00.load.t
 t/binmode.t
@@ -28,4 +28,5 @@ t/stdout_isnt.t
 t/stdout_like.t
 t/stdout_unlike.t
 TODO
-META.yml                                 Module meta-data (added by MakeMaker)
+META.yml                                 Module YAML meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)
