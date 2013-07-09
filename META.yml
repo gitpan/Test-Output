@@ -30,4 +30,4 @@ requires:
   perl: 5.006
 resources:
   repository: git://github.com/briandfoy/test-output.git
-version: 1.01_03
+version: 1.02
