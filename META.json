@@ -46,11 +46,11 @@
          }
       }
    },
-   "release_status" : "stable",
+   "release_status" : "testing",
    "resources" : {
       "repository" : {
          "url" : "git://github.com/briandfoy/test-output.git"
       }
    },
-   "version" : "1.02"
+   "version" : "1.02_01"
 }
